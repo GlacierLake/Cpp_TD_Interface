@@ -10,6 +10,8 @@ export module TDAPI;
 
 class td {
 	private:
+		
+		//the struct that will contain all of the client details
 		const static struct client_struct {
 			std::string client_id = " ";
 			std::string refresh_token = " ";
