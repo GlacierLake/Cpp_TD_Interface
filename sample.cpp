@@ -31,6 +31,7 @@ struct client_struct {
 			
 			curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 1L);
 			
+			//ignore UrlEncoder::Encode error, Microsoft Visual Studio is not fully up to date on module error messages, it will still access the function
 			std::string data = {"&grant_type=refresh_token&refresh_token=" + UrlEncoder::Encode(client.refresh_token) + "&access_type=&code=&client_id=" + client.client_id + "%40AMER.OAUTHAP&redirect_uri="};
 			curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data);
 			curl_easy_setopt(curl, CURLOPT_URL, "https://api.tdameritrade.com/v1/oauth2/token");
