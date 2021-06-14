@@ -1,14 +1,19 @@
-export module TDAPI;
+module;
+#pragma once
 
 #include <iostream>;
-#include "stdio.h";
-#include <stdlib.h>
 #include "curl/curl.h"
-#include "url_encoder.h"
 #include <fstream>
 
+export module TDAPI;
 
-//sample git request
+//imported c header files as modules
+import "stdio.h";
+import "stdlib.h";
+
+//import module url_encoder
+import url_encoder;
+
 
 class td {
 	private:
@@ -61,12 +66,15 @@ class td {
 		/*Need to make a series of classes to get the Client Credentials from the JSON, perhaps using a map rather than create an
 		individual function for each necessary client detail; will be looked into*/
 		std::string getClientId() {
-			std::fstream my_file;
-			my_file.open("credential.json", std::ios::out);
-			if (!my_file) {
-				std::ofstream MyFile("credentials.json");
-
-			};
+			std::fstream credentials;
+			credentials.open("credentials.json");
+			if (!credentials) {
+				std::ofstream my_file("credentials.json");
+			}
+			else {
+				credentials << "{\"ConsumerKey\" : \"\", \"RefreshToken\" : \"\", \"CallbackURL\" : \"\", \"AccountID\" : \"\", \"RefreshTime\" : \"\"}";
+				credentials.close();
+			}
 
 			
 		};

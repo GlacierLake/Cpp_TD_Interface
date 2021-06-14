@@ -1,11 +1,15 @@
-#pragma once
-
-#ifndef URL_ENCODER_H
-#define URL_ENCODER_H
+module;
 
 #include <string>
 #include <sstream>
 #include <iomanip>
+
+export module url_encoder;
+
+
+#ifndef URL_ENCODER_H
+#define URL_ENCODER_H
+
 
 const char kUnreservedChar[] = {
 //0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F
@@ -47,6 +51,7 @@ const char kHexToNum[] = {
   -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1  // F
 };
 
+export
 class UrlEncoder {
  public:
   static inline void Encode(const std::string &in, std::string *out, bool uppercase = false) {
