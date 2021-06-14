@@ -26,7 +26,8 @@ struct client_struct {
 
 			CURL* curl = curl_easy_init();
 			CURLcode res;
-			std::string readBuffer;
+			
+		
 
 			curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 1L);
 			
